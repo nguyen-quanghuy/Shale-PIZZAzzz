@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 15, 2020 at 10:13 PM
+-- Generation Time: Jul 18, 2020 at 11:17 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -32,7 +32,7 @@ CREATE TABLE `tbl_admin` (
   `id` int(11) NOT NULL,
   `permission` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_name` varchar(90) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   `updated_at` datetime DEFAULT NULL,
   `created_at` datetime DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -42,9 +42,10 @@ CREATE TABLE `tbl_admin` (
 --
 
 INSERT INTO `tbl_admin` (`id`, `permission`, `user_name`, `password`, `updated_at`, `created_at`) VALUES
-(1, 'Owner', 'Thang_Nguyen', '456321', '2020-04-21 14:28:16', NULL),
-(2, 'allow', 'An_Nguyen', '123456', '2020-04-21 09:15:54', NULL),
-(3, 'allow', 'quang huy', '123456', '2020-04-25 08:59:24', '2020-04-21 15:20:47');
+(1235, 'Owner', 'ThangNguyen', '7c4a8d09ca3762af61e59520943dc26494f8941b5a562703441846cfdf137b5b5e4d806ba148a571', NULL, NULL),
+(1236, 'Owner', 'AnNguyen', '7c4a8d09ca3762af61e59520943dc26494f8941b5a562703441846cfdf137b5b5e4d806ba148a571', NULL, NULL),
+(1237, 'Admin', 'hello', '7c4a8d09ca3762af61e59520943dc26494f8941b5a562703441846cfdf137b5b5e4d806ba148a571', NULL, NULL),
+(1238, 'Owner', 'test3', '7c4a8d09ca3762af61e59520943dc26494f8941b5a562703441846cfdf137b5b5e4d806ba148a571', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -62,13 +63,26 @@ CREATE TABLE `tbl_category` (
   `created_at` datetime DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `tbl_category`
+-- Table structure for table `tbl_combo`
 --
 
-INSERT INTO `tbl_category` (`id`, `cat_name`, `cat_price`, `cat_image`, `cat_description`, `updated_at`, `created_at`) VALUES
-(2, 'pizza', 15, '1587997860_p15.png', 'pizza', '2020-04-27 14:31:00', '2020-04-26 11:11:13'),
-(3, 'pizza', 20, '1588038097_p12.png', 'test', '2020-04-28 01:41:37', '2020-04-27 16:55:45');
+CREATE TABLE `tbl_combo` (
+  `id` int(11) NOT NULL,
+  `combo_img` varchar(200) NOT NULL,
+  `description` varchar(200) NOT NULL,
+  `price` int(11) NOT NULL,
+  `status` varchar(200) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_combo`
+--
+
+INSERT INTO `tbl_combo` (`id`, `combo_img`, `description`, `price`, `status`) VALUES
+(2, '1594868837_636188481_1.jpg', 'combo-weekend special', 20, 'Expired');
 
 -- --------------------------------------------------------
 
@@ -94,7 +108,34 @@ CREATE TABLE `tbl_delivery` (
 --
 
 INSERT INTO `tbl_delivery` (`id`, `first_name`, `last_name`, `email`, `id_user`, `phone_numbers`, `store_name`, `customer_address`, `comment`, `order_code`) VALUES
-(41, 'nguyen', 'huy', 'nguyenhuyabc2k@gmail.com', 468, 213456, NULL, 'Vuong Thua Vu-Khuong Trung-Ha Noi', '123456', 59);
+(41, 'nguyen', 'huy', 'nguyenhuyabc2k@gmail.com', 468, 213456, NULL, 'Vuong Thua Vu-Khuong Trung-Ha Noi', '123456', 59),
+(50, 'thang', 'nguyen', 'gras@gmail.com', 468, 1234567891, 'Shale Pizza Ngoc Khanh 107 D3 Ngoc Khanh, Ba Đinh', NULL, 'dfsd', 69),
+(51, 'nguyen', 'huy', 'nguyenhuyabc2k@gmail.com', 468, 213456, NULL, 'Xâm Hồ-Khuong Trung-Ha Noi', 'gchgf', 70),
+(52, 'nguyen', 'huy', 'nguyenhuyabc2k@gmail.com', 468, 123456, 'Choose a store to receive your order', NULL, 'ss', 71),
+(53, 'nguyen', 'huy', 'nguyenhuyabc2k@gmail.com', 468, 123456, 'Choose a store to receive your order', NULL, '34234', 72),
+(54, 'Nguyễn', 'Huy', 'nguyenhuyabc2k@gmail.com', 468, 213456, NULL, 'Vuong Thua Vu-Khuong Trung-Ha Noi', 'this is Test', 73),
+(55, 'Nguyễn', 'Huy', 'nguyenhuyabc2k@gmail.com', 468, 987366110, NULL, 'Vuong Thua Vu-Khuong Trung-Hà Nội', 'ojmk', 74),
+(56, 'Nguyễn', 'Huy', 'nguyenhuyabc2k@gmail.com', 487, 987366110, NULL, 'Vuong Thua Vu-Khuong Trung-Hà Nội', 'This is Test', 77);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_gallery`
+--
+
+CREATE TABLE `tbl_gallery` (
+  `id` int(11) NOT NULL,
+  `img` varchar(200) NOT NULL,
+  `img_description` varchar(200) DEFAULT NULL
+) ENGINE=Aria DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_gallery`
+--
+
+INSERT INTO `tbl_gallery` (`id`, `img`, `img_description`) VALUES
+(7, '1594865330_1706490104_avatar.jpeg', NULL),
+(8, '1594868913_896437039_2.jpg', 'perfect pizza');
 
 -- --------------------------------------------------------
 
@@ -115,7 +156,13 @@ CREATE TABLE `tbl_order` (
 --
 
 INSERT INTO `tbl_order` (`id`, `id_user`, `id_details`, `date_create`, `status`) VALUES
-(59, 468, 51, NULL, 'vip');
+(59, 468, 51, NULL, 'vip'),
+(68, 468, 60, NULL, 'pending'),
+(69, 468, 61, NULL, 'pending'),
+(70, 468, 62, NULL, 'friendly member'),
+(75, 487, 67, NULL, 'pending'),
+(76, 487, 68, NULL, 'pending'),
+(77, 487, 69, NULL, 'complete');
 
 -- --------------------------------------------------------
 
@@ -135,7 +182,17 @@ CREATE TABLE `tbl_order_details` (
 --
 
 INSERT INTO `tbl_order_details` (`id`, `prd_name`, `quantity`, `total_price`) VALUES
-(51, 'SEAFOOD DELUXE,Brown coffee,Milk shake', 4, 25);
+(51, 'SEAFOOD DELUXE,Brown coffee,Milk shake', 4, 25),
+(60, 'Epic Rainbow Cake,Doberge Cake', 2, 14),
+(61, 'Epic Rainbow Cake,Doberge Cake', 2, 14),
+(62, 'Double-Garlic & Herb Bread,CHEESY BITES TRIO SHRIMP,PIZZA 4 CHEESE,SEAFOOD PESTO', 10, 80),
+(63, 'PIZZA 4 CHEESE', 1, 8),
+(64, 'PIZZA 4 CHEESE,CHEESY BITES TRIO SHRIMP,SEAFOOD DELUXE,SEAFOOD PESTO,OCEAN DELIGHT', 6, 54),
+(65, 'CHEESY BITES TRIO SHRIMP,SEAFOOD DELUXE,HAWAIIAN PARADISE', 3, 32),
+(66, 'PIZZA 4 CHEESE', 2, 16),
+(67, 'PIZZA 4 CHEESE,CHEESY BITES TRIO SHRIMP', 2, 17),
+(68, 'PIZZA 4 CHEESE,CHEESY BITES TRIO SHRIMP', 2, 17),
+(69, 'PIZZA 4 CHEESE,CHEESY BITES TRIO SHRIMP', 2, 17);
 
 -- --------------------------------------------------------
 
@@ -226,7 +283,9 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`id`, `name`, `password`, `feed_back`, `phone_number`, `email`, `remember_token`, `updated_at`, `created_at`) VALUES
-(468, 'hello', '$2y$10$O59IFMGvuNgKXEQXU21rAO5yPjpnlqbJW.TzFUpEwUCN8VN1sXvq.', 'haha', '123456', 'orionazo9@gmail.com', 'owlLhzxzeAkcJaLDjKGhuTeEASCeYJuz0jP9lsOtcQYDo9N3kxTB0m5X6LkQ', '2020-05-08 11:38:52', '2020-04-27 09:45:52');
+(468, 'hello', '$2y$10$O59IFMGvuNgKXEQXU21rAO5yPjpnlqbJW.TzFUpEwUCN8VN1sXvq.', '', '123456', 'orionazo9@gmail.com', 'SohJIBL3SwJ17gpbseEN0IJi0j4nXKXnx0cCxJ4RYcq9bpQ2LYBSGLVUTcFc', '2020-07-18 05:41:15', '2020-04-27 09:45:52'),
+(486, 'testt', '$2y$10$flyWdIwjkQnBVaI/lVkhBOyfWAQHI9sGN8iq7z9jhbtjf/5rHGwBy', '', '12345678910', '123@gmail.com', 'HjrNZyMcIpnyRN05AAfd7ZqxEVKvdFuMJzGp7jxgAno2NjIm9h4VNWLQxHJ1', '2020-07-16 17:19:10', '2020-07-16 17:09:33'),
+(487, 'delete', '$2y$10$Tde1qzEBiLTsTxHzsRqW7uCLHXzeemv.VZVGa/41vcM8PxSNJ76Ry', 'hello world', '12345678910', '123@gmail.com', 'uR6cEk6mkt1dBQghO5UR1B5ONxi8X7iq0PyRwVvR6eDHfQrbZ3dS4gxrtBZc', '2020-07-17 07:30:17', '2020-07-16 17:18:33');
 
 --
 -- Indexes for dumped tables
@@ -245,9 +304,21 @@ ALTER TABLE `tbl_category`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tbl_combo`
+--
+ALTER TABLE `tbl_combo`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tbl_delivery`
 --
 ALTER TABLE `tbl_delivery`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_gallery`
+--
+ALTER TABLE `tbl_gallery`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -283,31 +354,43 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1235;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1239;
 
 --
 -- AUTO_INCREMENT for table `tbl_category`
 --
 ALTER TABLE `tbl_category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `tbl_combo`
+--
+ALTER TABLE `tbl_combo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_delivery`
 --
 ALTER TABLE `tbl_delivery`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+
+--
+-- AUTO_INCREMENT for table `tbl_gallery`
+--
+ALTER TABLE `tbl_gallery`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tbl_order`
 --
 ALTER TABLE `tbl_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT for table `tbl_order_details`
 --
 ALTER TABLE `tbl_order_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT for table `tbl_product`
@@ -319,7 +402,7 @@ ALTER TABLE `tbl_product`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=485;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=488;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
