@@ -100,11 +100,11 @@
                  @foreach($menuPizza as $select_pizza)
                  <div class="col-sm-4">
                    <div class="panel text-center" id="item" style="color: white;">
-                        <img class="img-round" style="width: 100%;" src="{{asset('product/'.$select_pizza->prd_img)}}" >
+                        <img class="img-round" style="width: 100%; height: 233px" src="{{asset('product/'.$select_pizza->prd_img)}}" >
                           <div class="panel-body">
-                          <h3>{{$select_pizza->dish_name}}</h3>
-                          <strong>{{$select_pizza->price}}$</strong>
-                          <p>{{$select_pizza->customer_reviews}}</p>
+                            <h3 style="height: 65px">{{$select_pizza->dish_name}}</h3>
+                            <p style="height: 65px">{{$select_pizza->customer_reviews}}</p>
+                            <strong style="font-size: 25px">{{$select_pizza->price}}$</strong>
                           </div>
                        <div class="panel-footer">
                           <a href="{{route('cart.add', $select_pizza->id)}}" id="addcart" class="btn btn-primary"><img src="css/cart.png" style="width: 20px">&ensp;ADD TO CART</a>
@@ -113,7 +113,7 @@
                  </div>
                   @endforeach
                   <div class="row">
-                    <div class="col-sm-4">{{$menuPizza->links()}}</div>
+                    <div class="col-sm-4" style="margin-top: 50px">{{$menuPizza->links()}}</div>
                   </div>
                  <!-- <div class="col-sm-4 h-75">
                    <div class="panel text-center" id="item" style="color: white">
@@ -180,21 +180,21 @@
                <div class="row">
                  @foreach($menuPreminum as $select_Preminum)
                  <div class="col-sm-4 h-75" id = "picpizza">
-                   <div class="panel text-center" id="item" style="color: white">
-                        <img class="img-round" style="width: 100%; height: 350px" src="{{asset('product/'.$select_Preminum->prd_img)}}" >
+                    <div class="panel text-center" id="item" style="color: white">
+                        <img class="img-round" style="width: 100%; height: 233px" src="{{asset('product/'.$select_Preminum->prd_img)}}" >
                           <div class="panel-body">
-                          <h3>{{$select_Preminum->dish_name}}</h3>
-                          <p>{{$select_Preminum->customer_reviews}}</p>
-                          <strong>{{$select_Preminum->price}}$</strong>
-                          </div>
-                       <div class="panel-footer">
-                       <a href="{{route('cart.add', $select_Preminum->id)}}" id="addcart" class="btn btn-primary"><img src="css/cart.png" style="width: 18px">&ensp;ADD TO CART</a>
-                       </div>
-                   </div>
+                            <h3 style="height: 65px">{{$select_Preminum->dish_name}}</h3>
+                            <p style="height: 60px">{{$select_Preminum->customer_reviews}}</p>
+                            <strong style="font-size: 25px">{{$select_Preminum->price}}$</strong>
+                        </div>
+                        <div class="panel-footer">
+                            <a href="{{route('cart.add', $select_Preminum->id)}}" id="addcart" class="btn btn-primary"><img src="css/cart.png" style="width: 18px">&ensp;ADD TO CART</a>
+                        </div>
+                    </div>
                  </div>
                  @endforeach
                  <div class="row">
-                    <div class="col-sm-4">{{$menuPreminum->links()}}</div>
+                    <div class="col-sm-4" style="margin-top: 50px">{{$menuPreminum->links()}}</div>
                   </div>
                  <!-- <div class="col-sm-4 h-75" id = "picpizza">
                    <div class="panel text-center" id="item" style="color: white">

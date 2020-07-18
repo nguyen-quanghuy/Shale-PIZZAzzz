@@ -74,11 +74,11 @@
                  @foreach($menuBeverage as $select_beverages)
                  <div class="col-sm-4 h-75">
                    <div class="panel text-center" id="item" style="color: white;">
-                        <img class="img-round" style="width: 100%" src="{{asset('product/'.$select_beverages->prd_img)}}" >
+                        <img class="img-round" style="width: 100%; height: 233px" src="{{asset('product/'.$select_beverages->prd_img)}}" >
                           <div class="panel-body">
-                          <h5 style="margin-top: 30px">{{$select_beverages->dish_name}}</h5>
-                          <p>{{$select_beverages->customer_reviews}}</p>
-                          <strong style="font-size: 30px">{{$select_beverages->price}}$</strong>
+                          <h3 style="height: 65px">{{$select_beverages->dish_name}}</h3>
+                          <p style="height: 65px">{{$select_beverages->customer_reviews}}</p>
+                          <strong style="font-size: 25px">{{$select_beverages->price}}$</strong>
                           </div>
                        <div class="panel-footer">
                        <a href="{{route('cart.add', $select_beverages->id)}}" id="addcart" class="btn btn-primary"><img src="css/cart.png" style="width: 20px">&ensp;ADD TO CART</a>
@@ -87,7 +87,7 @@
                  </div>
                  @endforeach
                  <div class="row">
-                  <div class="col-sm-4">{{$menuBeverage->links()}}</div>
+                  <div class="col-sm-4" style="margin-top: 50px">{{$menuBeverage->links()}}</div>
                 </div>
                  <!-- <div class="col-sm-4 h-75">
                    <div class="panel text-center" id="item" style="color: white">

@@ -47,10 +47,6 @@
                                     <td><input type="number" name='nbrPrice' placeholder="Enter Price" class="form-control"  value="{{$edit_product->price}}"size=50></td>
                                 </tr>
                                 <tr>
-                                    <td>Sold</td>
-                                    <td><input type="number" name='nbrSold' placeholder="Enter Sold" class="form-control" value="{{$edit_product->sold}}" size=50></td>
-                                </tr>
-                                <tr>
                                     <td>Inventory</td>
                                     <td><input type="number" name='nbrInven' placeholder="Enter Inventory" class="form-control"  value="{{$edit_product->inventory}}"size=50></td>
                                 </tr>

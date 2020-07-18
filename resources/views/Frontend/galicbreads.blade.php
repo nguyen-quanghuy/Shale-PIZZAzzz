@@ -100,11 +100,11 @@
                  @foreach($menuBread as $select_bread)
                  <div class="col-sm-4 h-75">
                    <div class="panel text-center" id="item" style="color: white">
-                        <img class="img-round" style="width: 100%;" src="{{asset('product/'.$select_bread->prd_img)}}" >
+                        <img class="img-round" style="width: 100%; height: 233px" src="{{asset('product/'.$select_bread->prd_img)}}" >
                           <div class="panel-body">
-                          <h5 style="margin-top: 30px">{{$select_bread->dish_name}}</h5>
-                          <p>{{$select_bread->customer_reviews}}</p>
-                          <strong style="font-size: 30px">{{$select_bread->price}}$</strong>
+                          <h3 style="height: 65px">{{$select_bread->dish_name}}</h3>
+                          <p style="height: 65px">{{$select_bread->customer_reviews}}</p>
+                          <strong style="font-size: 25px">{{$select_bread->price}}$</strong>
                           </div>
                        <div class="panel-footer">
                        <a href="{{route('cart.add', $select_bread->id)}}" id="addcart" class="btn btn-primary"><img src="css/cart.png" style="width: 20px">&ensp;ADD TO CART</a>
@@ -113,7 +113,7 @@
                  </div>
                 @endforeach
                 <div class="row">
-                  <div class="col-sm-4">{{$menuBread->links()}}</div>
+                  <div class="col-sm-4" style="margin-top: 50px">{{$menuBread->links()}}</div>
                 </div>
               </div>
             </div>

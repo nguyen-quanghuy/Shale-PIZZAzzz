@@ -76,20 +76,20 @@
                  @foreach($menuSandwiches as $select_sandwiches)
                  <div class="col-sm-4 h-75">
                    <div class="panel text-center" id="item" style="color: white;">
-                        <img class="img-round" style="width: 100%;" src="{{asset('product/'.$select_sandwiches->prd_img)}}" >
+                        <img class="img-round" style="width: 100%; height: 233px" src="{{asset('product/'.$select_sandwiches->prd_img)}}" >
                           <div class="panel-body">
-                          <h5 style="margin-top: 30px">{{$select_sandwiches->dish_name}}</h5>
-                          <p>{{$select_sandwiches->customer_reviews}}</p>
-                          <strong style="font-size: 30px">{{$select_sandwiches->price}}$</strong>
+                            <h3 style="height: 65px">{{$select_sandwiches->dish_name}}</h3>
+                            <p style="height: 65px">{{$select_sandwiches->customer_reviews}}</p>
+                            <strong style="font-size: 25px">{{$select_sandwiches->price}}$</strong>
                           </div>
                        <div class="panel-footer">
-                       <a href="{{route('cart.add', $select_sandwiches->id)}}" id="addcart" class="btn btn-primary"><img src="css/cart.png" style="width: 20px">&ensp;ADD TO CART</a>
+                            <a href="{{route('cart.add', $select_sandwiches->id)}}" id="addcart" class="btn btn-primary"><img src="css/cart.png" style="width: 20px">&ensp;ADD TO CART</a>
                        </div>
                    </div>
                  </div>
                  @endforeach
                 <div>
-                 <div class="col-sm-4">{{$menuSandwiches->links()}}</div>
+                 <div class="col-sm-4" style="margin-top: 50px">{{$menuSandwiches->links()}}</div>
                  </div>
                  <!-- <div class="col-sm-4 h-75">
                    <div class="panel text-center" id="item" style="color: white">

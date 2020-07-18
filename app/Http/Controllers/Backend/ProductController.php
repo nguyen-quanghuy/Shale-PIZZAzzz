@@ -40,7 +40,6 @@ class ProductController extends Controller
             'nbrCatId' => 'required|min:1|max:11',
             'txtDishName' => 'required|min:1|max:90',
             'nbrPrice' => 'required',
-            'nbrSold' => 'required',
             'nbrInven' => 'required',
             'txtCusReview' => 'required|min:1|max:90'
         ]);
@@ -55,7 +54,6 @@ class ProductController extends Controller
         // end Upload Image
         $store->dish_name = $request->txtDishName;
         $store->price = $request->nbrPrice;
-        $store->sold = $request->nbrSold;
         $store->inventory = $request->nbrInven;
         $store->customer_reviews = $request->txtCusReview;
         $store->save();
@@ -99,7 +97,6 @@ class ProductController extends Controller
             'txtPrdImg' => 'required|max:4096|mimes:jpeg,jpg,svd,png,gif|image',
             'txtDishName' => 'required|min:1|max:90',
             'nbrPrice' => 'required',
-            'nbrSold' => 'required',
             'nbrInven' => 'required',
             'txtCusReview' => 'required|min:1|max:90'
         ]);
@@ -114,7 +111,6 @@ class ProductController extends Controller
         // end Upload Image
         $update->dish_name = $request->txtDishName;
         $update->price = $request->nbrPrice;
-        $update->sold = $request->nbrSold;
         $update->inventory = $request->nbrInven;
         $update->customer_reviews = $request->txtCusReview;
         $update->save();

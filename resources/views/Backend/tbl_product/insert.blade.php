@@ -47,10 +47,6 @@
                                     <td><input type="number" name='nbrPrice' placeholder="Enter Price" class="form-control" size=50></td>
                                 </tr>
                                 <tr>
-                                    <td>Sold</td>
-                                    <td><input type="number" name='nbrSold' placeholder="Enter Sold" class="form-control" size=50></td>
-                                </tr>
-                                <tr>
                                     <td>Inventory</td>
                                     <td><input type="number" name='nbrInven' placeholder="Enter Inventory" class="form-control" size=50></td>
                                 </tr>

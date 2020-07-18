@@ -105,9 +105,6 @@
                           Price
                         </th>
                         <th>
-                          Sold
-                        </th>
-                        <th>
                           Inventory
                         </th>
                         <th>
@@ -138,9 +135,6 @@
                           </td>
                           <td>
                             {{$select_product->price}}
-                          </td>
-                          <td>
-                            {{$select_product->sold}}
                           </td>
                           <td>
                             {{$select_product->inventory}}

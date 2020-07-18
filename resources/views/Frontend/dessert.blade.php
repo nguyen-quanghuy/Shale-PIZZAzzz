@@ -141,11 +141,11 @@
                  @foreach($menuDessert as $select_dessert)
                  <div class="col-sm-4 h-75">
                    <div class="panel text-center" id="item" style="color: white">
-                        <img class="img-round" style="width: 100%;" src="{{asset('product/'.$select_dessert->prd_img)}}" >
+                        <img class="img-round" style="width: 100%; height: 233px" src="{{asset('product/'.$select_dessert->prd_img)}}" >
                           <div class="panel-body">
-                          <h5 style="margin-top: 30px">{{$select_dessert->dish_name}}</h5>
-                          <p>{{$select_dessert->customer_reviews}}</p>
-                          <strong style="font-size: 30px">{{$select_dessert->price}}$</strong>
+                          <h3 style="height: 65px">{{$select_dessert->dish_name}}</h3>
+                          <p style="height: 65px">{{$select_dessert->customer_reviews}}</p>
+                          <strong style="font-size: 25px">{{$select_dessert->price}}$</strong>
                           </div>
                        <div class="panel-footer">
                        <a href="{{route('cart.add', $select_dessert->id)}}" id="addcart" class="btn btn-primary"><img src="css/cart.png" style="width: 20px">&ensp;ADD TO CART</a>
@@ -153,7 +153,7 @@
                    </div>
                  </div>
                  @endforeach
-                  <div class="col-sm-4 d-flex align-item-end">{{$menuDessert->links()}}</div>
+                  <div class="col-sm-4 d-flex align-item-end" style="margin-top: 50px">{{$menuDessert->links()}}</div>
               </div>
             </div>
             </div><br><br><br>
