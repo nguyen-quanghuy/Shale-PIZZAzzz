@@ -1,5 +1,6 @@
+
 @extends('masterTwo')
-@section('title', 'INSERT-ADMIN')
+@section('title', 'INSERT-COMBO')
 @section('main')
             <div class="container-fluid">
                 <div class="row">
@@ -13,36 +14,35 @@
                                 </ul>
                             </div>
                         @endif
-                        <form action="{{route('insert')}}" method='POST'>
+                        <form action="{{route('insert_combo')}}" method='POST' enctype="multipart/form-data">
                             @csrf
-                            <table >
+                            <table>
                                 <tr>
-                                    <td>ID</td>
-                                    <td>
-                                        <input type="number" name='nbrId' placeholder="Enter ID" class="form-control">
-                                    </td>
+                                    <td>Combo Image</td>
+                                    <td><input type="file" name='txtComboImg' class="form-control"></td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>Description</td>
+                                    <td><textarea name='txtDescription' class="form-control"></textarea></td>
                                 </tr>
                                 <tr>
-                                    <td>Permission</td>
-                                    <td>
-                                        <input type="text" name='txtPermission' placeholder="Enter Permission" class="form-control">
-                                    </td>
+                                    <td>Price</td>
+                                    <td><input type="number" name='txtPrice' placeholder="Enter Price" class="form-control" size=50></td>
                                 </tr>
                                 <tr>
-                                    <td>User Name</td>
+                                    <td>Status</td>
                                     <td>
-                                        <input type="text" name='txtUserName' placeholder="Enter User Name" class="form-control">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Password</td>
-                                    <td>
-                                        <input type="password" name='txtPwd' placeholder="Enter Password" class="form-control" size=50>
+                                        <select class='w-100' name='txtStatus'>
+                                            <option value='Available'>Available</option>
+                                            <option value='Expired'>Expired</option>
+                                        </select>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td></td>
-                                    <td><input type='submit' class="btn btn-primary w-100" value='Add New ID'></td>
+                                    <td><input type='submit' class="btn btn-primary w-100 text-white" value='Add New Combo'></td>
                                 </tr>
                             </table>
                         </form>

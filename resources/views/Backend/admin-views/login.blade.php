@@ -5,30 +5,42 @@
 	<link rel="stylesheet" type="text/css" href="style/style.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-	   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-	<style type="text/css">
-		
-
-	</style>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 </head>
 <body>
-	<div class="clearfix w-100">
-	   <div class="login-box mx-auto">
-		<h1>Login</h1>
-		<div class="textbox">
-			<img src="style/user.svg" style="width: 12px">
-			<input type="text" placeholder="Username" style="font-family: sans-serif;" id="username" name="" value="">
-			<span id='mes_n1'></span>
+	<div class="row d-flex justify-content-center" style='margin-top: 37px;'>
+		<div class="cold-md-12 w-50">
+			@if($message = Session::get('errLogin'))
+                <div class="alert alert-danger" role="alert">
+                    <p>{{$message}}</p>
+                </div>
+            @endif
+			<form method='POST' action="{{route('admin-login')}}">
+				@csrf
+				<div class='card'>
+					<div class="card-header d-flex justify-content-center">
+						<h3 class='text-primary'>Login Form</h3>
+					</div>
+					<div class='card-body'>
+						<div class='form-group'>
+							<h6 class='form-control-row text-secondary'>Username</h6>
+							<input type="text" placeholder="Username" class='form-control' name="txtUserName">
+							<span id='mes_n1'></span>
+						</div>
+						<div class="form-group">
+							<h6 class='form-control-row text-secondary'>Password</h6>
+							<input type="password" placeholder="Password" class='form-control' name="txtPwd">
+							<span id='mes_n2'></span>
+						</div>
+						<div class='form-group  d-flex justify-content-center'>
+							<input class="btn btn-success w-50" type="submit" value="Login">
+						</div>
+					</div>
+				</div>
+			</form>
 		</div>
-		<div class="textbox">
-			<img src="style/lock.svg" style="width: 10px">
-			<input type="password" placeholder="Password" id="pwd" name="pwd">
-			<span id='mes_n2'></span>
-		</div>
-		<input class="btn btn-dark" type="button" name="" value="Sign In" onclick="kiemtra();">
-	  </div>
 	</div>
 <script>
 	function checkemail(v)

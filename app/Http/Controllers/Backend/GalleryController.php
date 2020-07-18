@@ -4,10 +4,9 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Model\tbl_user;
-use DB;
+use App\Model\tbl_gallery;
 
-class FeedbackController extends Controller
+class GalleryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,8 @@ class FeedbackController extends Controller
      */
     public function index()
     {
-        $feedBack = tbl_user::all();
-        return view("Frontend.feedback", compact('feedBack'));
+        $index_gal = tbl_gallery::orderBy('id', 'desc')->paginate(12);
+        return view("Backend.admin-views.gallery", compact('index_gal'));
     }
 
     /**
@@ -27,8 +26,7 @@ class FeedbackController extends Controller
      */
     public function create()
     {
-        $feedBack = tbl_user::all();
-        return view("Backend.admin-views.feedback", compact('feedBack'));
+        return view('Backend.tbl_gallery.insert');
     }
 
     /**
@@ -39,10 +37,16 @@ class FeedbackController extends Controller
      */
     public function store(Request $request)
     {
-        // $store = new tbl_user;
-        // $store->feed_back = $request->txtFeedBack;
-        // $store->save();
-        // return redirect("backend/feedback");
+        $store = new tbl_gallery;
+        // Upload Image
+        $getName                = $request->file('txtImg')->getClientOriginalName();
+        $new_name               = time()."_".rand()."_".$getName;
+        $request->file('txtImg')->move(public_path('gallery'), $new_name);
+        $store->img             = $new_name;
+        // end Upload Image
+        $store->img_description = $request->txtImgDescription;
+        $store->save();
+        return redirect('backend/gallery');
     }
 
     /**
@@ -64,8 +68,7 @@ class FeedbackController extends Controller
      */
     public function edit($id)
     {
-        // $edit = tbl_user::find($id);
-        // return redirect('backend/feedback', compact('edit'));
+        
     }
 
     /**
@@ -77,10 +80,7 @@ class FeedbackController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $update = tbl_user::find($id);
-        $update->feed_back = $request->txtFeedBack;
-        $update->save();
-        return back();
+        //
     }
 
     /**
@@ -89,14 +89,10 @@ class FeedbackController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
-        $destroy = tbl_user::find($id);
-        $destroy->feed_back = '';
-        $destroy->save();
-        return redirect("backend/feedback")->with('success', "Update Feed back successfully");
-    }
-    public function checkFeed(){
-        return back()->with('fail', 'Please Login to use this function');
+        $destroy = tbl_gallery::select('id', 'img', 'img_description');
+        $destroy->delete();
+        return redirect('backend/gallery');
     }
 }

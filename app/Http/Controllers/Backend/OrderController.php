@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\tbl_order;
+use App\Model\tbl_delivery;
+use App\Model\tbl_order_details;
 
 class OrderController extends Controller
 {
@@ -15,7 +17,10 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $index_order = tbl_order::all();
+        $index_delivery = tbl_delivery::all();
+        $index_order_details = tbl_order_details::all();
+        return view("Backend.admin-views.ordertable", compact('index_order', 'index_delivery', 'index_order_details'));
     }
 
     /**
@@ -84,15 +89,9 @@ class OrderController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nbrId' => 'required|min:1|max:11',
-            'txtDate' => 'required',
-            'txtUserId' => 'required|min:1|max:11',
             'txtStatus' => 'required|min:5|max:20'
         ]);
         $update = tbl_order::find($id);
-        $update->id = $request->nbrId;
-        $update->date_create = $request->txtDate;
-        $update->user_id = $request->txtUserId;
         $update->status = $request->txtStatus;
         $update->save();
         return redirect("backend/menu-table")->with('success_order', "Edit data successfully");
@@ -108,6 +107,6 @@ class OrderController extends Controller
     {
         $destroy = tbl_order::find($id);
         $destroy->delete();
-        return redirect("backend/menu-table")->with('success_order', "Delete data successfully");
+        return redirect("backend/order-table")->with('success_order', "Delete data successfully");
     }
 }

@@ -35,9 +35,12 @@ Route::group(['prefix'=>'backend', 'namespace'=>'Backend'], function(){
     Route::get('user-table','AdminController@index')->name('usertable');
 
     //Route weekend
-    Route::get('weekend-special', function(){
-        return view("Backend.admin-views.weekendspecial");
-    })->name('weekend');
+    Route::get('weekend-special', "ComboController@index")->name('weekend');
+    Route::get('tbl_combo/create_combo', "ComboController@create")->name('create_combo');
+    Route::post('tbl_combo/insert_combo', "ComboController@store")->name('insert_combo');
+    Route::get('tbl_combo/edit_combo/{id}', "ComboController@edit")->name('edit_combo');
+    Route::post('tbl_combo/update_combo/{id}', "ComboController@update")->name('update_combo');
+    Route::get('tbl_combo/delete_combo/{id}', "ComboController@destroy")->name('delete_combo');
 
     //Route gallery
     Route::get('gallery', function(){
@@ -50,9 +53,10 @@ Route::group(['prefix'=>'backend', 'namespace'=>'Backend'], function(){
     })->name('location');
 
     //Route feedback
-    Route::get('feedback', function(){
-        return view("Backend.admin-views.feedback");
-    })->name('feedback');
+    Route::get('feedback', "FeedbackController@create")->name('feedback');
+    Route::post('checkFeed', 'FeedbackController@checkFeed')->name('checkFeed');
+    Route::get('delete_feedBack/{id}', "FeedbackController@destroy")->name('delete_feedBack');
+    // Route::post('postFeedBack/{id}', 'FeedbackController@update')->name('postFeedBack');
 
     //Route franchiesinfo
     Route::get('franchiesinfo', function(){
@@ -88,6 +92,7 @@ Route::group(['prefix'=>'backend', 'namespace'=>'Backend'], function(){
     Route::get('tbl_delivery/delete_delivery/{id}', "DeliveryController@destroy")->name('delete_delivery');
 
     //Route tbl_order
+    Route::get('order-table', "OrderController@index")->name('index_order');
     Route::get('tbl_order/create_order', "OrderController@create")->name('create_order');
     Route::post('tbl_order/insert_order', "OrderController@store")->name('insert_order');
     Route::get('tbl_order/edit_order/{id}', "OrderController@edit")->name('edit_order');
@@ -107,6 +112,15 @@ Route::group(['prefix'=>'backend', 'namespace'=>'Backend'], function(){
     Route::get('tbl_product/edit_product/{id}', "ProductController@edit")->name('edit_product');
     Route::post('tbl_product/update_product/{id}', "ProductController@update")->name('update_product');
     Route::get('tbl_product/delete_product/{id}', "ProductController@destroy")->name('delete_product');
+
+    //Route tbl_gallery
+    Route::get('tbl_gallery/create_gallery', "GalleryController@create")->name('create_img');
+    Route::post('tbl_product/insert_gallery', "GalleryController@store")->name('insert_img');
+    Route::get('tbl_product/delete_gallery', "GalleryController@destroy")->name('delete_img');
+    Route::get('gallery', "GalleryController@index")->name('gallery-admin');
+
+    //Route tbl_combo
+    // Route::get('combo-weekend', "ComboController@index")->name('index_combo');
 });
 
 //Route login logout register
@@ -142,8 +156,9 @@ Route::get('home', function(){
 })->name('home');
 
 Route::get('feedback', 'Backend\FeedbackController@index')->name('f.feedback');
+// Route::get('Backend/FeedBack', "Backend\FeedbackController@create")->name('b.feedback');
 Route::post('postFeedBack/{id}', 'Backend\FeedbackController@update')->name('postFeedBack');
-Route::post('checkFeed', 'Backend\FeedbackController@checkFeed')->name('checkFeed');
+
 
 Route::get('franinfo', function(){
     return view('Frontend.franinfo');
@@ -151,7 +166,7 @@ Route::get('franinfo', function(){
 
 Route::get('galicbreads', 'Backend\ProductController@getProductBread')->name('galicbreads');
 
-Route::get('gallery', function(){
+Route::get('gallerys', function(){
     return view('Frontend.gallery');
 })->name('f.gallery');
 Route::get('location', function(){
@@ -183,6 +198,8 @@ Route::get('completed', function(){
     return view("Frontend.completed");
 });
 Route::get('payment', "CartController@contentCheckoutTwo")->name('payment');
+
+
 
 
 

@@ -5,9 +5,6 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\tbl_category;
-use App\Model\tbl_delivery;
-use App\Model\tbl_order;
-use App\Model\tbl_order_details;
 use App\Model\tbl_product;
 
 class CategoryController extends Controller
@@ -19,13 +16,11 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $index_delivery = tbl_delivery::all();
         $index_category = tbl_category::all();
         // dd($index_category);
-        $index_order = tbl_order::all();
-        $index_order_details = tbl_order_details::all();
+        // $index_order = tbl_order::all();
         $index_product = tbl_product::all();
-        return view("Backend.admin-views.menutable", compact('index_category', 'index_delivery', 'index_order', 'index_order_details', 'index_product'));
+        return view("Backend.admin-views.menutable", compact('index_category', 'index_product'));
     }
 
     /**

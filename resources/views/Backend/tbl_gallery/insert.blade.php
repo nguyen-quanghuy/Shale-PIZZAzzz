@@ -1,5 +1,5 @@
 @extends('masterTwo')
-@section('title', 'EDIT-ORDER')
+@section('title', 'INSERT-GALLERY')
 @section('main')
             <div class="container-fluid">
                 <div class="row">
@@ -13,16 +13,20 @@
                                 </ul>
                             </div>
                         @endif
-                        <form action="{{route('update_order', $edit_order->id)}}" method='POST'>
+                        <form action="{{route('insert_img')}}" method='POST' enctype="multipart/form-data">
                             @csrf
                             <table >
                                 <tr>
-                                    <td>Status</td>
-                                    <td><input type="text" value="{{$edit_order->status}}" name='txtStatus' placeholder="Enter Status" class="form-control" size=50></td>
+                                    <td>Image</td>
+                                    <td><input type="file" name='txtImg' class="form-control"></td>
+                                </tr>
+                                <tr>
+                                    <td>Description</td>
+                                    <td><input type="text" name='txtImgDescription' class="form-control" placeholder="Enter Description"></td>
                                 </tr>
                                 <tr>
                                     <td></td>
-                                    <td><input type='submit' class="btn btn-success w-100" value='Edit Order' style="color: white"></td>
+                                    <td><input type='submit' class="btn btn-primary w-100" value='Add New Image' style="color: white"></td>
                                 </tr>
                             </table>
                         </form>
