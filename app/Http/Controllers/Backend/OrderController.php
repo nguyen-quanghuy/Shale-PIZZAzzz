@@ -42,16 +42,17 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nbrId' => 'required|min:1|max:11',
+            // 'nbrId' => 'required|min:1|max:11',
             'txtDate' => 'required',
             'txtUserId' => 'required|min:1|max:11',
             'txtStatus' => 'required|min:5|max:20'
         ]);
         $store = new tbl_order;
-        $store->id = $request->nbrId;
+        // $store->id = $request->nbrId;
         $store->date_create = $request->txtDate;
-        $store->user_id = $request->txtUserId;
+        $store->id_user = $request->txtUserId;
         $store->status = $request->txtStatus;
+        $store->id_details = $request->txtUserDetailId;
         $store->save();
         return redirect("backend/menu-table")->with('success_order', "Insert data successfully");
     }
