@@ -16,10 +16,10 @@
                         <form action="{{route('insert_order')}}" method='POST'>
                             @csrf
                             <table >
-                                <tr>
+                                <!-- <tr>
                                     <td>ID</td>
                                     <td><input type="number" name='nbrId' placeholder="Enter ID" class="form-control"></td>
-                                </tr>
+                                </tr> -->
                                 <tr>
                                     <td>Date Create</td>
                                     <td><input type="datetime-local" name='txtDate' placeholder="Enter Date create" class="form-control"></td>
@@ -27,6 +27,10 @@
                                 <tr>
                                     <td>User ID</td>
                                     <td><input type="number" name='txtUserId' class="form-control" placeholder="Enter User ID"></td>
+                                </tr>
+                                <tr>
+                                    <td>ID Detail</td>
+                                    <td><input type="number" name='txtUserDetailId' class="form-control" placeholder="Enter User Detail Id"></td>
                                 </tr>
                                 <tr>
                                     <td>Status</td>
