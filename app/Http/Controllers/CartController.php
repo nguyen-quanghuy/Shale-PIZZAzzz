@@ -97,16 +97,16 @@ class CartController extends Controller
             // dd($data);
             $data['cart'] = Cart::getContent();
             $data['total'] = Cart::getTotal();
-            $email = $request->txtEmail;
-            Mail::send('Frontend.email', $data, function($message) use ($email){
-                $message->from('nguoitot3@gmail.com', 'TRUONGSA');
+            // $email = $request->txtEmail;
+            // Mail::send('Frontend.email', $data, function($message) use ($email){
+            //     $message->from('nguoitot3@gmail.com', 'TRUONGSA');
 
-                $message->to($email, $email);
+            //     $message->to($email, $email);
 
-                $message->cc('quanghuyabc2k@gmail.com', 'TRUONGSA');
+            //     $message->cc('quanghuyabc2k@gmail.com', 'TRUONGSA');
 
-                $message->subject('Xác nhận đơn hàng pizza shop');
-            });
+            //     $message->subject('Xác nhận đơn hàng pizza shop');
+            // });
             // Cart::clear();
             return redirect('payment');
     }
@@ -162,16 +162,16 @@ class CartController extends Controller
             $data['order_code'] = $idOr;
             $data['cartTwo'] = Cart::getContent();
             $data['totalTwo'] = Cart::getTotal();
-            $emailTwo = $request->Email;
-            Mail::send('Frontend.emailTwo', $data, function($messageTwo) use ($emailTwo){
-                $messageTwo->from('nguoitot3@gmail.com', 'TRUONGSA');
+            // $emailTwo = $request->Email;
+            // Mail::send('Frontend.emailTwo', $data, function($messageTwo) use ($emailTwo){
+            //     $messageTwo->from('nguoitot3@gmail.com', 'TRUONGSA');
 
-                $messageTwo->to($emailTwo, $emailTwo);
+            //     $messageTwo->to($emailTwo, $emailTwo);
 
-                $messageTwo->cc('quanghuyabc2k@gmail.com', 'TRUONGSA');
+            //     $messageTwo->cc('quanghuyabc2k@gmail.com', 'TRUONGSA');
 
-                $messageTwo->subject('Xác nhận đơn hàng pizza shop');
-            });
+            //     $messageTwo->subject('Xác nhận đơn hàng pizza shop');
+            // });
             return redirect('payment'); 
     }
     public function postCommitTwos(){
