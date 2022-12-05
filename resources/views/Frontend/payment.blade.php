@@ -43,7 +43,7 @@
                                   <div class="col-md-12">
                                     <div class="form-group">
                                       <label class="bmd-label-floating">Nhập số tiền bạn muốn thanh toán</label>
-                                      <input type="number" class="form-control" name='txtCheck' value="{{$totalPrice}}">
+                                      <input type="number" class="form-control" name='txtCheck1' value="{{$totalPrice}}">
                                     </div>
                                   </div>
                                 </div>
@@ -62,7 +62,7 @@
                                   <div class="col-md-12">
                                     <div class="form-group">
                                       <label class="bmd-label-floating">Nhập số tiền bạn muốn thanh toán</label>
-                                      <input type="number" class="form-control" name='txtCheck' value="{{$totalPrice}}">
+                                      <input type="number" class="form-control" name='txtCheck2' value="{{$totalPrice}}">
                                     </div>
                                   </div>
                                 </div>
@@ -89,7 +89,7 @@
                                         <input type="radio" value="vpbank"><img src="images/vpbank.png"> Ngân hàng TMCP Việt Nam Thịnh Vượng<br>
 
                                       <label class="bmd-label-floating">Nhập số tiền bạn muốn thanh toán</label>
-                                      <input type="number" class="form-control" name='txtCheck' value="{{$totalPrice}}">
+                                      <input type="number" class="form-control" name='txtCheck3' value="{{$totalPrice}}">
                                     </div>
                                   </div>
                                 </div>
