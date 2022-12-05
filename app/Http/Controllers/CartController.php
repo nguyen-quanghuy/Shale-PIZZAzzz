@@ -107,7 +107,7 @@ class CartController extends Controller
 
             //     $message->subject('Xác nhận đơn hàng pizza shop');
             // });
-            // Cart::clear();
+            Cart::clear();
             return redirect('payment');
     }
     public function postCommits(){
@@ -162,7 +162,7 @@ class CartController extends Controller
             $data['order_code'] = $idOr;
             $data['cartTwo'] = Cart::getContent();
             $data['totalTwo'] = Cart::getTotal();
-            // $emailTwo = $request->Email;
+            //$emailTwo = $request->Email;
             // Mail::send('Frontend.emailTwo', $data, function($messageTwo) use ($emailTwo){
             //     $messageTwo->from('nguoitot3@gmail.com', 'TRUONGSA');
 
@@ -194,7 +194,16 @@ class CartController extends Controller
         return view("Frontend.payment", compact('cartContent', 'cartTotalQuantity', 'totalPrice', 'IDORDER'));
     }
     public function checkPay(Request $request, $id){
-        $checkout = $request->txtCheck;
+        $checkout = '';
+        if($request->txtCheck1 != ''){
+            $checkout = $request->txtCheck1;
+        }
+        if($request->txtCheck2 != ''){
+            $checkout = $request->txtCheck1;
+        }
+        if($request->txtCheck3 != ''){
+            $checkout = $request->txtCheck1;
+        }
         $totalPrice = Cart::getTotal();
         if($checkout==''){
             return back()->with('fail', "Enter money to Payment");
