@@ -199,10 +199,10 @@ class CartController extends Controller
             $checkout = $request->txtCheck1;
         }
         if($request->txtCheck2 != ''){
-            $checkout = $request->txtCheck1;
+            $checkout = $request->txtCheck2;
         }
         if($request->txtCheck3 != ''){
-            $checkout = $request->txtCheck1;
+            $checkout = $request->txtCheck3;
         }
         $totalPrice = Cart::getTotal();
         if($checkout==''){
